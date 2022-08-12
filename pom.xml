@@ -13,9 +13,6 @@
         <module>bzhao-service</module>
         <module>bzhao-service-api</module>
         <module>bzhao-gateway</module>
-        <module>bzhao-service</module>
-        <module>bzhao-service-api</module>
-        <module>bzhao-gateway</module>
     </modules>
 
     <properties>
@@ -80,11 +77,6 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>3.3.2</version>
-            </dependency>
-            <dependency>
-                <groupId>io.minio</groupId>
-                <artifactId>minio</artifactId>
-                <version>7.1.4</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
