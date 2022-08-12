@@ -15,5 +15,17 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-
+    <packaging>pom</packaging>
+    <modules>
+        <module>service-blog</module>
+        <module>service-core</module>
+        <module>service-todo</module>
+    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.bzhao</groupId>
+            <artifactId>bzhao-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

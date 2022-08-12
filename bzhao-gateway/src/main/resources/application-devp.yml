@@ -1,0 +1,47 @@
+server:
+  port: 6000
+spring:
+  application:
+    name: service-gateway # 应用名称
+  cloud:
+    inetutils:
+      preferredNetworks: //匹配正则表达式优先使用ip段，list配置 从上到下找，找到哪个用哪个
+        - 10.2.0
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+      server-addr: http://101.43.152.143:8848
+      namespace: public
+    gateway:
+      httpclient:
+        pool:
+          maxIdleTime: 10000
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态创建路由的功能
+      # 路由规则
+      routes:
+        - id: service-core # 核心
+          uri: http://203.189.199.140:6001 # 需要转发的地址  lb：使用nacos本地的负载均衡策略
+          # 断言规则 用于路由规则的匹配
+          predicates:
+            - Path=/**
+        - id: service-bd # 步道
+          uri: http://203.189.199.140:6003  # 需要转发的地址  lb：使用nacos本地的负载均衡策略
+          # 断言规则 用于路由规则的匹配
+          predicates:
+            - Path=/**
+          filters: #当前路由下的局部过滤器
+            # 添加请求路径的前缀
+            - PrefixPath=/api
+        - id: service-log # 日志
+          uri: lb://service-log  # 需要转发的地址  lb：使用nacos本地的负载均衡策略
+          # 断言规则 用于路由规则的匹配
+          predicates:
+            - Path=/**
+        - id: service-admin # 后台管理
+          uri: http://203.189.199.140:6002  # 需要转发的地址  lb：使用nacos本地的负载均衡策略
+          # 断言规则 用于路由规则的匹配
+          predicates:
+            - Path=/**

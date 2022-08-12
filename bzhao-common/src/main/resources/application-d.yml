@@ -1,0 +1,56 @@
+spring:
+  cloud:
+    inetutils:
+      preferredNetworks: //匹配正则表达式优先使用ip段，list配置 从上到下找，找到哪个用哪个
+        - 10.2.0
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+      server-addr: http://101.43.152.143:8848
+      namespace: public
+  kafka:
+    bootstrap-servers: 8.142.136.4:9092
+    producer: # 生产者
+      retries: 3 # 设置大于0的值，则客户端会将发送失败的记录重新发送
+      batch-size: 16384
+      buffer-memory: 33554432
+      acks: 1
+      # 指定消息key和消息体的编解码方式
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: huiren-group
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      # 当每一条记录被消费者监听器（ListenerConsumer）处理之后提交
+      # RECORD
+      # 当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后提交
+      # BATCH
+      # 当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后，距离上次提交时间大于TIME时提交
+      # TIME
+      # 当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后，被处理record数量大于等于COUNT时提交
+      # COUNT
+      # TIME |　COUNT　有一个条件满足时提交
+      # COUNT_TIME
+      # 当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后, 手动调用Acknowledgment.acknowledge()后提交
+      # MANUAL
+      # 手动调用Acknowledgment.acknowledge()后立即提交
+      # MANUAL_IMMEDIATE
+      ack-mode: MANUAL_IMMEDIATE
+      missing-topics-fatal: false
+knife4j:
+  enable: true
+  basic:
+    enable: true
+    username: admin
+    password: 123456
+feign:
+  client:
+    config:
+      default: # 这里用default就是全局配置，如果是写服务名称，则是针对某个微服务的配置
+        loggerLevel: FULL #  日志级别
+foreverToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJyZWFkIl0sImF1dGhvcml0aWVzIjpbIlJPTEVfQ0xJRU5UIl0sImp0aSI6ImU4MzhlYzY0LWVlZGUtNGVhZC05NjgxLWE5Y2ExMWVhZDJkYyIsImNsaWVudF9pZCI6ImFuZHJvaWQifQ.dinqeu06rm9hDDq-kS8hcSDt84q1b6yDcfxB6LVqJPY
