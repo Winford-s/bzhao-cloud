@@ -16,30 +16,5 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-    <profiles>
-        <profile>
-            <id>devp</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <package.environment>devp</package.environment>
-                <project.packaging>jar</project.packaging>
-            </properties>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <package.environment>test</package.environment>
-                <project.packaging>jar</project.packaging>
-            </properties>
-        </profile>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <package.environment>prod</package.environment>
-                <project.packaging>jar</project.packaging>
-            </properties>
-        </profile>
-    </profiles>
+
 </project>
