@@ -13,6 +13,9 @@
         <module>bzhao-service</module>
         <module>bzhao-service-api</module>
         <module>bzhao-gateway</module>
+        <module>bzhao-service/service-todo</module>
+        <module>bzhao-service/service-blog</module>
+        <module>bzhao-service/service-core</module>
     </modules>
 
     <properties>
@@ -37,8 +40,8 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.tournesol</groupId>
-                <artifactId>tournesol-common</artifactId>
+                <groupId>com.bzhao</groupId>
+                <artifactId>bzhao-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!-- SpringBoot 版本管理器 -->
