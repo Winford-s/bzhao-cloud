@@ -6,7 +6,6 @@
         <artifactId>bzhao-service</artifactId>
         <groupId>com.bzhao</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.bzhao</groupId>

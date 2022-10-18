@@ -14,5 +14,4 @@ public class GateWayApplication {
         SpringApplication.run(GateWayApplication.class, args);
     }
 
-
 }

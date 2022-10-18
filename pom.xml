@@ -13,9 +13,6 @@
         <module>bzhao-service</module>
         <module>bzhao-service-api</module>
         <module>bzhao-gateway</module>
-        <module>bzhao-service/service-todo</module>
-        <module>bzhao-service/service-blog</module>
-        <module>bzhao-service/service-core</module>
     </modules>
 
     <properties>
