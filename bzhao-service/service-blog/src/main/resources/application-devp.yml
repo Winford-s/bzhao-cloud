@@ -5,7 +5,7 @@ server:
   servlet:
     session:
       cookie:
-        name: TOURNESOL-BLOG
+        name: BZHAO-BLOG
 logging:
   level:
     org.springframework.security: debug
@@ -29,9 +29,9 @@ spring:
   profiles:
     include: d
   datasource:
-    url: jdbc:mysql://8.142.135.239:3306/huiren-cloud-bd?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://203.189.199.140:3306/service-blog?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: huiren@123
+    password: zhao1688
     hikari:
       minimum-idle: 5
       maximum-pool-size: 10
