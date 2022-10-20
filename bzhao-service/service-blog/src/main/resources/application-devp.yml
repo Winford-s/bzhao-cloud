@@ -5,25 +5,33 @@ server:
   servlet:
     session:
       cookie:
-        name: TOURNESOL-CORE
+        name: TOURNESOL-BLOG
 logging:
   level:
     org.springframework.security: debug
     com.tournesol.core: debug
     com.tournesol.common: debug
 spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML5
+
   servlet:
     multipart:
       max-file-size: 70MB
       max-request-size: 100MB
   application:
-    name: service-core
+    name: service-blog
   profiles:
     include: d
   datasource:
-    url: jdbc:mysql://39.107.13.44:3306/huiren-cloud-core?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://8.142.135.239:3306/huiren-cloud-bd?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
-    password: bibilili4455
+    password: huiren@123
     hikari:
       minimum-idle: 5
       maximum-pool-size: 10
@@ -33,9 +41,9 @@ spring:
       connection-test-query: SELECT 1
   redis:
     database: 0
-    host: 39.98.45.114
+    host: 8.142.135.239
     port: 6388
-    password: huiren@123
+    password: huiren@2022$
     jedis:
       pool:
         max-active: 300
@@ -43,11 +51,6 @@ spring:
         max-idle: 20
         min-idle: 0
     timeout: 1000ms
-security:
-  oauth2:
-    resource:
-      jwt:
-        key-value: huiren.com
 mybatis-plus:
   global-config:
     worker-id: 1
@@ -55,15 +58,7 @@ mybatis-plus:
     db-config:
       id-type: id_worker
   mapper-locations: classpath*:mapper/*.xml
-#  百度云配置
-baidu:
-  appId: 26973518
-  apiKey: 8Rsgy2gSxz9btPzs7bvLWE2V
-  secretKey: P3nTKpEzgle5wrs90PmCyCndb6WPkwRn
-baiduSpeech:
-  appId: 26164205
-  apiKey: niaZhKVOjhdVqw6BxYNApDbS
-  secretKey: o85ELVoE809Ig4kwRP7POjGLWLujRLK5
+
 
 
 
